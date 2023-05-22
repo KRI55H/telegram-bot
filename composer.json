@@ -1,0 +1,6 @@
+{
+    "require": {
+        "longman/telegram-bot": "^0.80.0",
+        "zoonman/pixabay-php-api": "dev-master"
+    }
+}
