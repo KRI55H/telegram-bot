@@ -16,8 +16,7 @@
         $userName = $update['message']['from']['first_name']." ".$update['message']['from']['last_name'];
         $data = [
             'chat_id' => "$chatId",
-            'text' => "Hello, $userName it\'s <b>KRI55H</b> at your service.<br>Here are some help tricks with command<br>/image < category_name > for example<br>/image nature",
-            'parse_mode' => 'html'
+            'text' => "Hello, $userName it\'s KRI55H at your service.Here are some help tricks with command",
         ];
         file_get_contents($path."/sendMessage?".http_build_query($data));
     }
