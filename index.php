@@ -30,29 +30,30 @@
         file_get_contents($path . "/deleteMessage?".http_build_query($data));
     }
 
-    // Send Image
-    if(strpos($message,"image")){
-        $category = str_replace("/image ","",$message);
-        try {
-            $pixBay = new PixabayClient([
-                'key' => PIXLAB_KEY
-            ]);
-            $results = $pixBay->get(['q' => "$category"], true);
-        } catch (Exception $e) {
-            $data = [
-                'chat_id' => "$chatId",
-                'text' => $e->getMessage()
-            ];
-            file_get_contents($path."/sendMessage?".http_build_query($data));
-        }
-        foreach ($results['hits'] as $img){
-            $data = [
-                'chat_id' => "$chatId",
-                'photo' => $img['largeImageURL']
-            ];
-            file_get_contents($path."/sendPhoto?".http_build_query($data));
-            break;
-        }
-    }
+// This function is currently not working
+//      Send Image
+//    if(strpos($message,"image")){
+//        $category = str_replace("/image ","",$message);
+//        try {
+//            $pixBay = new PixabayClient([
+//                'key' => PIXLAB_KEY
+//            ]);
+//            $results = $pixBay->get(['q' => "$category"], true);
+//        } catch (Exception $e) {
+//            $data = [
+//                'chat_id' => "$chatId",
+//                'text' => $e->getMessage()
+//            ];
+//            file_get_contents($path."/sendMessage?".http_build_query($data));
+//        }
+//        foreach ($results['hits'] as $img){
+//            $data = [
+//                'chat_id' => "$chatId",
+//                'photo' => $img['largeImageURL']
+//            ];
+//            file_get_contents($path."/sendPhoto?".http_build_query($data));
+//            break;
+//        }
+//    }
 
 ?>
